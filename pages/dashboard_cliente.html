@@ -1,0 +1,62 @@
+<html>
+	<head>
+		<title>Painel Cliente</title>
+	</head>
+	<body>
+		<div id="entirecontent">
+			<div id="dynamicmenu">
+				<nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top nav-pills nav-fill">
+					<a class="navbar-brand" href="#" onclick="load_products_client();"><img class="logo" src="../img/logo2.png" alt="" /></a>
+	
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+	
+					<div class="collapse navbar-collapse" id="collapsibleNavbar">
+						<ul class="navbar-nav">
+							<li class="nav-item">
+						<a class="nav-link menulinks" href="#" onclick="load_products_client();">PRODUTOS</a>
+							</li>
+							<li class="nav-item">
+						<a class="nav-link menulinks" href="#" onclick="load_pets_client();">PETS</a>
+							</li>
+							<li class="nav-item">
+						<a class="nav-link menulinks" href="#" onclick="load_animal_client();">ANIMAIS</a> 
+							</li>
+							<li class="nav-item">
+						<a class="nav-link menulinks" href="#" onclick="load_register_animal();">CADASTRO</a>
+							</li>
+							<li class="nav-item">
+						<a class="nav-link menulinks" href="#" onclick="load_schedules();">AGENDAMENTOS</a>
+							</li>
+							<li class="nav-item">
+						<a class="nav-link menulinks" href="#" onclick="load_profile_client();">PERFIL</a>
+							</li> 
+						<li class="nav-item">
+						<div id="user">
+							Bem vindo, Armando! 
+							<a href="#" onclick="open_cart();"><img id="sale" alt="Ver carrinho" src="../img/carrinho_icon.png" /></a>
+							<a href="#" onclick="reload_index();"><img id="logout" alt="Sair" src="../img/logout.png" /></a><br />
+						</div>
+							</li>
+						</ul>
+					</div> 
+				</nav>
+			</div>
+			<div id="clientcontent"> 
+				<section class="container product_list">
+					<h1 class="onepageheader">CONFIRA OS NOSSOS PRODUTOS!</h1>
+					<div id="produtos_logged"></div>
+	
+				</section>
+			</div>
+	
+			<br />
+	
+			<div class="footer" id="footer">
+				2018 - Grupo 6 | Introdução ao Desenvolvimento Web<br />
+				Todos os direitos reservados.
+			</div>
+		</div>
+	</body>
+</html>

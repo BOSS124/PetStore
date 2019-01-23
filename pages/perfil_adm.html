@@ -1,0 +1,99 @@
+<div class="container">
+	<div class="row">	
+		<div id="profile_cont">
+			<form action="/updateadmprofile" method="post" enctype="multipart/form-data">
+				<table class="table">
+					<tr>
+						<td>
+						<div class="form-row">
+							<div class="form-group col-md-4">
+								<img width="250" height="300" id="user_img">
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-8">
+								<label for="imagem">Foto:</label>
+								<input id="form_image" name="image" type="file" class="form-control">
+							</div>
+						</div>
+						</td>
+						<td>
+						<div class="form-row">
+							<div class="form-group col-md-4">
+								<label for="nome">Nome:</label>
+								<input id="form_name" name="name" type="text" class="form-control" required><br/>
+							</div>
+							<div class="form-group col-md-4">
+								<label>CPF:</label>
+								<input id="form_cpf" name="cpf" type="text" class="form-control" required><br/>
+							</div>
+							<div class="form-group col-md-4">
+								<label>Data Nasc:</label>
+								<input id="form_birth" name="birth" type="date" class="form-control" required><br/>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-4">
+								<label>Endereço:</label>
+								<input id="form_address" name="address" type="text" class="form-control" required><br/>
+							</div>
+							<div class="form-group col-md-2">
+								<label>Número:</label>
+								<input id="form_num" name="num" type="text" class="form-control" required><br/>
+							</div>
+							<div class="form-group col-md-3">
+								<label>Complemento:</label>
+								<input id="form_complement" name="complement" type="text" class="form-control" required><br/>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label>Bairro:</label>
+								<input id="form_neighborhood" name="neighborhood" type="text" class="form-control" required><br/>
+							</div>
+							<div class="form-group col-md-4">
+								<label>CEP:</label>
+								<input id="form_cep" name="cep" type="text" class="form-control" required><br/>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label>Telefone:</label>
+								<input id="form_tel" name="tel" type="text" class="form-control" required><br/>
+							</div>
+							<div class="form-group col-md-4">
+								<label>Celular:</label>
+								<input id="form_cel" name="cel" type="text" class="form-control" required><br/>
+							</div>
+							<div class="form-group col-md-4">
+								<button type="submit" class="btn btn-primary">Salvar</button>
+							</div>
+						</div>
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$.get('/admprofile', function(data, status) {
+		if(status === "success") {
+				$('#user_img').attr('src', '/' + data.profile_pic);
+				$('#form_name').val(data.name);
+				$('#form_cpf').val(data.cpf);
+				$('#form_birth').val(data.birth_date);
+				$('#form_address').val(data.address);
+				$('#form_num').val(data.number);
+				$('#form_complement').val(data.complement);
+				$('#form_neighborhood').val(data.neighborhood);
+				$('#form_cep').val(data.cep);
+				$('#form_tel').val(data.telephone);
+				$('#form_cel').val(data.cellphone);	
+		}
+		else {
+			alert("Não foi possível carregar as informações de perfil");
+			load_adm_services();
+		}
+	});
+</script>

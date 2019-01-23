@@ -1,0 +1,127 @@
+		<div class="content">
+ 			<h2 class="onepageheader">Agendamentos</h1>
+		<br/>
+		<div class="date_schedule"> 
+		</div>
+			<table class="table table-striped">
+			  <thead>
+			    <tr class="bg-info">
+				<td>Pet</td>
+				<td>Nome do Pet</td>
+				<td>Serviço Agendado</td>
+				<td>Descrição do Serviço</td>
+				<td>Data</td>
+				<td>Hora</td>
+				<td>Desmarcar</td>
+				<td>Pagar online</td>
+			    </tr>
+			  </thead>
+			    <tbody id="schedules_user">
+		  		  <script type="text/javascript">
+					function loadSchedule() {
+						$.get('/clientschedulelist', function(data, status) {
+							if(status === "success") {
+								$("#schedules_user").empty();	
+								for(var i in data) {
+									let s = data[i];
+									$("#schedules_user").append(
+										'<tr>\
+											<td><img width="50" height="50" align="center" src="'+s.image_pet+'" alt=""></td>\
+											<td>'+s.name_pet+'</td>\
+											<td><img width="50" height="50" align="center" src="'+s.image_service+'" alt=""></td>\
+											<td>'+s.name_service+'</td>\
+											<td>'+s.attendance_date+'</td>\
+											<td>'+s.hours+'</td>\
+											<td><img src="../img/delete.png" width="20" height="20" onclick="deleteFromSchedule(' + s.id + ')"> </td>\
+											<td><img src="../img/pag.png" width="20" height="20" onclick="loadModal();"> </td>\
+										</tr>'
+									);
+								}
+							}
+							else {
+								alert("Possível falha na conexão com o servidor!");
+							}
+						});
+					}
+
+				function deleteFromSchedule(serviceId) {
+					$.post('/deleteschedule', {id: serviceId}, function(data, status) {
+						if(status === "success") {
+							alert("O agendamento foi deletado com sucesso!");
+							loadSchedule();
+						}
+						else {
+							alert('Possível falha na conexão com o servidor');
+						}
+					});
+				}
+
+				loadSchedule();
+				</script>
+			  </tbody>		
+			</table>
+
+			<div id="payment_modal" class="modal fade" class="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		  	
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title">Finalizar compra</h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body">
+			      	<form action="" method="" enctype="multipart/form-data" target="_self">
+			      	<div class="form-row">
+					    <div class="form-group col-md-6">
+					     	<label for="inputCard">Número Cartão:</label>
+					     	<input type="text" maxlength="16" class="form-control" id="inputCard" required>
+					  	</div>
+					</div>
+					<div class="form-row">
+			      		<div class="form-group col-md-2">
+				    	<label for="inputCvv">CVV</label>
+				    	<input type="text" maxlength="3" class="form-control" id="inputCvv" required>
+				    	</div>				  
+				    </form>				        
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-primary" data-dismiss="modal">Confirmar Pagamento</button>
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar Pagamento</button>
+			      </div>
+			    </div>
+			  </div>
+			
+		  </div>
+
+
+
+		<br/><br/>
+		<div id="schedulebutton">
+			<a class="schedulebutton" href="#" onclick="toggle_scheduler();">Agendar novo atendimento</a>
+		</div>
+		<div id="schedule">
+			<form action="/registerschedule" method="post" enctype="multipart/form-data">
+				Serviço de interesse:<br>
+				<select name="id_service" class="formstyle" id="service" required>
+				</select><br><br>
+			    Animal de interesse:<br>
+				<select name="id_animal" class="formstyle" id="animal" required>
+				</select><br><br>
+			    Data do atendimento:<br>
+			    <input name="attendance_date" class="formstyle" type="date" id="data_consulta"><br><br>
+				Horário:<br>
+				<input name="hours" class="formstyle" type="time" id="hora_consulta"><br><br>
+				<center><button class="cadastro_user" type="submit">Cadastrar</button></center>
+			</form>
+		    
+		</div>
+		<script type="text/javascript" src="../js/client_logic.js"></script>
+
+		<script type="text/javascript">
+			function loadModal() {	
+				let modal = $("#payment_modal");
+				modal.modal();
+			}
+		</script>

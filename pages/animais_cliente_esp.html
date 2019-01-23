@@ -1,0 +1,103 @@
+	
+		<div id="animal_picked" class="row">
+			<script type="text/javascript">
+				var id = localStorage.getItem("animal_id");
+				$.get('/getpetlist/'+id, function(data, status) {
+					if(status === "success") {
+						let animal = data;
+						$("#animal_picked").append(
+							'<div class="col-sm-6 col-md-4 col-lg-3">\
+									<br> <br>\
+									<figure class="thumbnail">\
+										<img class="product img-thumbnail" align="center" src="/'+animal.imgFile +'" alt="">\
+										<figcaption class="caption">\
+											<p class="product_item">' + animal.name + '<br>'+ animal.breed +'</p>\
+											<br>\
+											<button role="button" class="btn btn-primary btn-buy" onclick="load_animal_client();">Voltar</button>\
+										</figcaption>\
+									</figure>\
+							</div>'
+						);
+					}
+				});
+				
+									
+					
+			</script>	
+		</div>
+	
+
+	<div class="date_schedule"> 
+		</div>
+		<center>
+			<table class="table table-striped">
+			  <thead>
+			    <tr class="bg-info">
+				<td>Pet</td>
+				<td>Nome do Pet</td>
+				<td>Serviço Agendado</td>
+				<td>Descrição do Serviço</td>
+				<td>Data</td>
+				<td>Hora</td>
+				<td>Desmarcar</td>
+			    </tr>
+			  </thead>
+			    <tbody id="schedules_user">
+		  		  <script type="text/javascript">
+					function loadSchedule() {
+						var id = localStorage.getItem("animal_id");
+						
+						$.get('/clientschedulelist', function(data, status) {
+							if(status === "success") {
+								$("#schedules_user").empty();	
+								for(var i in data) {
+									let s = data[i];
+									
+									if(Number(s.id_pet) === Number(id)){
+											
+									
+									$("#schedules_user").append(
+										'<tr>\
+											<td><img width="50" height="50" align="center" src="'+s.image_pet+'" alt=""></td>\
+											<td>'+s.name_pet+'</td>\
+											<td><img width="50" height="50" align="center" src="'+s.image_service+'" alt=""></td>\
+											<td>'+s.name_service+'</td>\
+											<td>'+s.attendance_date+'</td>\
+											<td>'+s.hours+'</td>\
+											<td><img src="../img/delete.png" width="20" height="20" onclick="deleteFromSchedule(' + s.id + ')"> </td>\
+										</tr>'
+									);
+									}
+								}
+							}
+							else {
+								alert("Possível falha na conexão com o servidor!");
+							}
+						});
+					}
+
+				function deleteFromSchedule(serviceId) {
+					$.post('/deleteservice', {id: serviceId}, function(data, status) {
+						if(status === "success") {
+							alert("O agendamento foi deletado com sucesso!");
+							loadSchedule();
+						}
+						else {
+							alert('Possível falha na conexão com o servidor');
+						}
+					});
+				}
+
+				loadSchedule();
+				</script>
+			  </tbody>		
+			</table>
+		</center>
+		
+
+
+
+			
+	
+
+		

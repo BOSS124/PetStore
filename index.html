@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="css/style.css">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="./bootstrap-4.1.1/css/bootstrap.min.css">
+		<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="./img/favicon.ico" type="image/x-icon">
+
+		<title>Louro Jose PetStore - Home</title>
+	</head>
+
+	<body onload="init();">
+		<div id="entirecontent">
+			<div id="dynamicmenu">
+				<nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top nav-pills nav-fill">
+				  <a class="navbar-brand" href="index.html"><img class="logo" src="img/logo2.png" alt="" /></a>
+
+				  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+				    <span class="navbar-toggler-icon"></span>
+				  </button>
+
+				  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+				    <ul class="navbar-nav">
+				      <li class="nav-item">
+						<a class="nav-link menulinks" href="#produtos">VER PRODUTOS</a>
+				      </li>
+				      <li class="nav-item">
+						<a class="nav-link menulinks" href="#animais">VER ANIMAIS CADASTRADOS</a> 
+				      </li>
+				      <li class="nav-item">
+						<a class="nav-link menulinks" href="#usuario">ÁREA DO USUÁRIO</a>
+				      </li> 
+				      <li class="nav-item">
+						<a class="nav-link menulinks" href="#footer">CONTATO</a>
+				      </li> 
+				    </ul>
+				  </div> 
+				</nav>
+			</div>
+			<div id="contentbody">
+				<div id="initialExposition" class="carousel slide carousel-fade" data-ride="carousel">
+				  <ol class="carousel-indicators">
+				    <li data-target="#initialExposition" data-slide-to="0" class="active"></li>
+				    <li data-target="#initialExposition" data-slide-to="1"></li>
+				    <li data-target="#initialExposition" data-slide-to="2"></li>
+				    <li data-target="#initialExposition" data-slide-to="3"></li>
+				  </ol>
+				  <div class="carousel-inner">
+				    <div class="carousel-item active">
+				    	<div class="carousel-caption d-none d-md-block">
+				    		<h2>Aqui temos os melhores produtos para o seu dog!</h2>
+				    	</div>
+				      	<img class="d-block w-100 carouselimage" src="./img/front1.jpeg" alt="First slide">
+				    </div>
+				    <div class="carousel-item">
+				    	<div class="carousel-caption d-none d-md-block">
+				    		<h2>A melhor solução para os seus investimentos com felinos!</h2>
+				      	</div>
+				      	<img class="d-block w-100 carouselimage" src="./img/cat.jpg" alt="Second slide">
+				    </div>
+				    <div class="carousel-item">
+				    	<div class="carousel-caption d-none d-md-block">
+				    		<h2>As aves não ficam de fora dessa!</h2>
+				      	</div>
+				      	<img class="d-block w-100 carouselimage" src="./img/bird.jpg" alt="Third slide">
+				    </div>
+				    <div class="carousel-item">
+				    	<div class="carousel-caption d-none d-md-block">
+				    		<h2>Seja qual for o seu pet, venha para a Louro José Pet Store!</h2>
+				      	</div>
+				      	<img class="d-block w-100 carouselimage" src="./img/fish.jpg" alt="Fourth slide">
+				    </div>
+				  </div>
+				  <a class="carousel-control-prev" href="#initialExposition" role="button" data-slide="prev">
+				    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				    <span class="sr-only">Anterior</span>
+				  </a>
+				  <a class="carousel-control-next" href="#initialExposition" role="button" data-slide="next">
+				    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+				    <span class="sr-only">Próximo</span>
+				  </a>
+				</div>
+				<div id="produtos"></div>
+				<div id="animais"></div>
+				<div id="usuario">
+					
+
+				</div>
+				<div class="fronttext container">
+					Não perca tempo e venha conferir a loja!<br />
+  					<div class="row">
+    					<div class="col">
+		    				<button class="blocklink" onclick="redirect_signup();">Cadastrar-se</button>
+		    			</div>
+    					<div class="col">
+		    				<a href="#" class="loginlink" onclick="redirect_login();">Já sou Cadastrado</a>
+		    			</div>
+		    		</div>	
+					<p>&nbsp;</p>
+				</div>
+			</div>
+		<div class="footer" id="footer">
+			2018 - Grupo 6 | Introdução ao Desenvolvimento Web<br />
+			Todos os direitos reservados.
+		</div>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+		<script src="./bootstrap-4.1.1/js/bootstrap.min.js"></script>
+		<script src="./js/appdata.js"></script>
+		<script src="./js/page_allocation.js"></script>
+	</body>
+
+</html>

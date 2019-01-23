@@ -1,0 +1,62 @@
+		<div class="content">
+ 			<h2 class="onepageheader">Agendamentos</h1>
+		<br/>
+		<div class="date_schedule"> 
+		</div>
+		<table class="table table-striped">
+		  <thead>
+		    <tr class="bg-info">
+			<td>Serviço Agendado</td>
+			<td>Descrição do Serviço</td>
+			<td>Cliente</td>
+			<td>Pet</td>
+			<td>Preço</td>
+			<td>Data</td>
+			<td>Hora</td>
+			<td>Desmarcar</td>
+		    </tr>
+		  </thead>
+		    <tbody id="schedules">
+	  		  <script type="text/javascript">
+				function loadSchedule() {
+					$.get('/allschedulelist', function(data, status) {
+						if(status === "success") {
+							$("#schedules").empty();	
+							for(var i in data) {
+								let s = data[i];
+								$("#schedules").append(
+									'<tr>\
+										<td><img width="50" height="50" align="center" src="'+s.image_service+'" alt=""></td>\
+										<td>'+s.name_service+'</td>\
+										<td>'+s.owner_name+'</td>\
+										<td>'+s.name_pet+'</td>\
+										<td>'+s.price+'</td>\
+										<td>'+s.attendance_date+'</td>\
+										<td>'+s.hours+'</td>\
+										<td><img src="../img/delete.png" width="20" height="20" onclick="deleteFromSchedule(' + s.id + ')"> </td>\
+									</tr>'
+								);
+							}
+						}
+						else {
+							alert("Possível falha na conexão com o servidor!");
+						}
+					});
+				}
+
+			function deleteFromSchedule(serviceId) {
+				$.post('/deleteschedule', {id: serviceId}, function(data, status) {
+					if(status === "success") {
+						alert("O agendamento foi deletado com sucesso!");
+						loadSchedule();
+					}
+					else {
+						alert('Possível falha na conexão com o servidor');
+					}
+				});
+			}
+
+			loadSchedule();
+			</script>	
+		  </tbody>		
+		</table>

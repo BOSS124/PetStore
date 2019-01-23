@@ -1,0 +1,35 @@
+	<h1 class="onepageheader">Meus Pets</h1>
+	<div class="container">
+
+		<div id="owned_animal_list" class="row">
+			<script type="text/javascript">
+				$.get('/clientpetlist', function(data, status) {
+					if(status === "success") {
+						$("#owned_animal_list").empty();
+						let ownedAnimalList = data;
+
+						for(var i in ownedAnimalList) {
+							let animal = ownedAnimalList[i];
+							$.get('/' + animal.imgFile, function(data, status) {
+								$("#owned_animal_list").append(
+									'<div class="col-sm-6 col-md-4 col-lg-3">\
+											<br> <br>\
+											<figure class="thumbnail">\
+												<img class="product img-thumbnail" align="center" src="/'+animal.imgFile +'" alt="">\
+												<figcaption class="caption">\
+													<p class="product_item">' + animal.name + '<br>'+ animal.breed +'</p>\
+													<br>\
+													<button role="button" class="btn btn-primary btn-buy" onclick="get_animal_details('+animal.id+');">Detalhes</button>\
+												</figcaption>\
+											</figure>\
+									</div>'
+								);
+							});
+						}
+					}
+				});
+					
+			</script>	
+		</div>
+		
+	</div>

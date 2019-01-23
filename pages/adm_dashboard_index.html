@@ -1,0 +1,48 @@
+	<div id="entirecontent">
+
+		<div id="dynamicmenu">
+			<nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top nav-pills nav-fill">
+			  <a class="navbar-brand" href="#" onclick="load_adm_services();"><img class="logo" src="../img/logo2.png" alt="" /></a>
+
+			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+			    <span class="navbar-toggler-icon"></span>
+			  </button>
+
+			  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+			    <ul class="navbar-nav">
+			      <li class="nav-item">
+					<a class="nav-link menulinks" href="#" onclick="load_adm_services();">SERVIÇOS</a> 
+			      </li>
+			      <li class="nav-item">
+					<a class="nav-link menulinks" href="#" onclick="load_adm_cad();">CADASTRO</a> 
+			      </li>
+			      <li class="nav-item">
+					<a class="nav-link menulinks" href="#" onclick="load_adm_stock();">ESTOQUE</a>  
+			      </li>
+			      <li class="nav-item">
+					<a class="nav-link menulinks" href="#" onclick="load_adm_users();">USUÁRIOS</a>  
+			      </li>
+			      <li class="nav-item">
+					<a class="nav-link menulinks" href="#" onclick="load_adm_profile();">PERFIL</a>
+			      </li> 
+				  <li class="nav-item">
+					<div id="user">
+						Bem vinda, Luisa! 
+						<a href="#" onclick="reload_index_adm();"><img id="logout_adm" alt="Sair" src="../img/logout.png" /></a><br />
+					</div>
+			      </li>
+			    </ul>
+			  </div> 
+			</nav>
+		</div>
+
+		<div id="admcontent" class="content"></div>
+
+		<div class="footer">
+			2018 - Grupo 6 | Introdução ao Desenvolvimento Web<br />
+			Todos os direitos reservados.
+		</div>
+		<script type="text/javascript" src="../js/adm_dashboard.js"></script>
+		<script type="text/javascript">load_adm_services();</script>
+	</div>	
+

@@ -1,0 +1,28 @@
+<div class="cadastrocard">
+        <form action="/registerpet" method="post" enctype="multipart/form-data" target="_self">
+            Nome do Animal:<br />
+            <input name="name" class="formstyle" type="text" id="nome" placeholder="Nome do Pet" /><br /><br />
+            Espécie do Animal:<br />
+            <select name="category" id="especie" required>
+                <option value="dogs">Cão</option>
+                <option value="cats">Gato</option>
+                <option value="birds">Pássaro</option>
+                <option value="fishes">Peixe</option>
+            </select>
+            Raça:<br />
+            <input name="breed" class="formstyle" type="text" id="raca" placeholder="Qual a raça do seu pet?" required/><br /><br />
+            Data de Nascimento:<br />
+            <input name="birth" class="formstyle" type="date" id="data" placeholder="DD/MM/AAAA" required/><br /><br />
+            Sexo:<br />
+            <select name="genre" class="cadastrostyle" id="genre" required>
+              <option value="f">Feminino</option>
+              <option value="m">Masculino</option>
+            </select><br /><br />
+            Preço:<br />
+            <input name="price" class="formstyle" id="price" type="number" min="0" step="0.01" value="0" required /><br /><br />
+            Foto do Animal:<br />
+            <input name="image" class="formstyle" id="imagem"  type="file" required><br /><br />
+
+            <button class="cadastro_logged" type="submit">Cadastrar</button>
+        </form>
+</div>

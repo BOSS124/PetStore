@@ -1,0 +1,30 @@
+<div class="cadastrocard">
+				<form action="/addproduct" method="post" enctype="multipart/form-data" target="_self">
+					Nome do Produto:<br/>
+	    			<input class="formstyle" type="text" name="name" placeholder="Nome do Produto" required/><br /><br />
+	    			Animal de interesse:<br />
+	    			<select name="target" required>
+					  <option value="dogs">Cachorro</option>
+					  <option value="cats">Gato</option>
+					  <option value="birds">Aves</option>
+					  <option value="fishes">Peixes</option>
+					</select><br /><br />
+					Categoria:<br/>
+					<select name="category" required>
+						<option value="food">Alimento</option>
+						<option value="supplement">Suplemento</option>
+						<option value="toy">Brinquedo</option>
+						<option value="accessory">Acessório</option>
+						<option value="hygiene">Higiene</option>
+					</select><br /><br /> 
+	    			Foto:<br />
+	                <input class="formstyle" type="file" name="image" placeholder="Selecione..." required/><br /><br />
+	    			Preço:<br />
+	    			<input class="formstyle" type="number" name="price" placeholder="XX.XX" step="0.01" required /><br /><br />
+	    			Quantidade:<br />
+					<input class="formstyle" type="number" name="amount" placeholder="1" required/><br /><br />
+					<center>
+						<button type="submit" class="cadastro_logged">Cadastrar</button>
+					</center>
+	    		</form>
+</div>

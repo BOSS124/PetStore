@@ -1,0 +1,65 @@
+<div class="content">
+	<h2 class="onepageheader">Usuários</h2>
+	<br/>
+	<div class="tablecontent"><center>
+		<table class="table table-striped">
+		  <thead>
+		    <tr class="bg-info">
+			<td>Nome</td>
+			<td>E-mail</td>
+			<td>Tipo do Usuário</td>
+			<td>Data de Nascimento</td>
+			<td>Excluir</td>
+		    </tr>
+		  </thead>
+		    <tbody id="users_adm">
+					<script type="text/javascript">
+					function loadUsers() {
+						$.get('/alluserslist', function(data, status) {
+							if(status === "success") {
+								$("#users_adm").empty();
+								for(var i in data) {
+									var s = data[i];
+									var profiletype;
+									if (s.profile_type === 1) {
+										profiletype = "Cliente";
+									} else {
+										profiletype = "Administrador";
+									}
+
+									$("#users_adm").append(
+										'<tr>\
+											<td>'+s.name+'</td>\
+											<td>'+s.email+'</td>\
+											<td>'+ profiletype +'</td>\
+											<td>'+s.birth_date+'</td>\
+											<td><img src="../img/delete.png" width="20" height="20" onclick="deleteUser(' + s.id + ')"> </td>\
+										</tr>'
+									);
+								}
+							}
+							else {
+								alert("Possível falha na conexão com o servidor!");
+							}
+						});
+					}
+
+				function deleteUser(serviceId) {
+					$.post('/deleteuser', {id: serviceId}, function(data, status) {
+						if(status === "success") {
+							alert("O usuario foi excluido com sucesso!");
+							loadUsers();
+						}
+						else {
+							alert('Possível falha na conexão com o servidor');
+						}
+					});
+				}
+
+				loadUsers();
+			</script>
+		  </tbody>		
+		</table>
+	</center>
+	</div>
+

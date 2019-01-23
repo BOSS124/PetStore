@@ -1,0 +1,750 @@
+body {
+	background-color: #FCFCFC;
+	font-family: Arial, Helvetica, sans-serif;
+	padding-top: 80px;
+}
+
+#produtos, #animais, #usuario {
+	padding-top: 80px;
+}
+
+.btn-primary {
+	background-color: #0B2217;
+}
+
+
+div.menu {
+	display: block;
+	color: #FCFCFC;
+	background-color: #0B2217;
+	font-style: oblique;
+	font-size: 20px;
+	text-align: center;	
+}
+
+div.profilemenu {
+	background-color: #CCC;
+	width: 210px;
+	height: 100%;
+}
+
+div.profilecontent {
+	position: absolute;
+	left: 260px;
+	top: 140px;
+	font-size: 15px;
+	color: #8CC1D9;
+	background-color: #FCFCFC;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+ul.profilebutton {
+	list-style-type: none;
+	background-color: #0B2217;
+	margin: 0;
+	padding: 0;
+	width: 210px;
+	border: 1px solid #555;
+	font-size: 24px;
+}
+
+li.profilebuttonlist {
+	text-align: center;
+	border-bottom: 1px solid #555;
+}
+
+li.profilebuttonlist:hover {
+	text-decoration: none;
+	background-color: #351C54;
+}
+
+li.profilebuttonlist:last-child{
+	border-bottom: none;
+}
+img.profilephoto {
+	width: 210px;
+	height: 220px;
+	border: 5px solid gray;
+}
+
+div.menulogged {
+	display: block;
+	color: #FCFCFC;
+	background-color: #0B2217;
+	font-style: oblique;	
+	font-size: 20px;
+	text-align: center;	
+}
+
+a.menulinks {
+	font-size: 20px;
+	text-decoration: none;
+}
+
+a.menulinks:hover {
+	text-decoration: none;
+}
+
+a.menulinksprofile {
+	text-decoration: none;
+	color: #FCFCFC;
+}
+
+a.menulinksprofile:hover {
+	text-decoration: none;
+	color: #FCFCFC;
+	background-color: #351C54;
+}
+
+div.footer {
+	color: #FCFCFC;
+	background-color: #351C54;
+	font-style: oblique;
+	font-size: 15px;
+	text-align: center;
+	border-collapse: collapse;
+ 	padding:15px; 
+ 	margin-top:-4px;
+ 	bottom: 0; 
+ 	left: 0; 
+ 	right: 0;	
+ 	width: 100%;
+ 	position: relative; 
+}
+
+img.front {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+img.logo {
+	max-width: 30%;
+	max-height: 30%;
+	margin-left: 3px;
+	margin-top: 3px;
+}
+
+img.logo_card {
+	max-width: 50%;
+	max-height: 50%;
+	margin-left: 30%;	 
+	text-align: center;
+}
+
+div.fronttext {
+	text-align: center;
+	color: #0B2217;
+	font-style: bold;
+	font-size: 40px;
+	top:50%;
+}
+
+button.blocklink {
+	background-color: #8CC1D9;
+	color: #FCFCFC;
+	font-size: 20px;
+	text-align: center;
+	padding: 15px 25px;
+	border-radius: 8px;
+}
+
+div.card {
+	position: relative;
+	text-align: left;
+	z-index: 2; 
+	width: 350px;
+	margin: 50px auto; 
+	padding: 30px; 
+	background: #FCFCFC; 
+}
+
+button.login {
+	background-color: #0B2217;
+	color: #FCFCFC;
+	font-size: 30px;
+	padding: 7px 20px;
+	margin-left: 58%;
+	border-radius: 8px;
+}
+
+button.cadastro {
+	background-color: #351C54;
+	color: #FCFCFC;
+	text-align: center;
+	font-size: 15px;
+	padding: 7px 10px;
+	width: 290px;
+	border-radius: 8px;
+}
+
+button.buy {
+	background-color: #8CC1D9;
+	color: #FCFCFC;
+	font-size: 15px;
+	text-align: center;
+	padding: 10px 10px;
+	border-radius: 8px;
+}
+
+a.loginlink {
+	font-size: 20px;
+	text-decoration: underline;
+	color: #8CC1D9;
+}
+
+.bg {
+	position:fixed; 
+	top:-50%; 
+	left:-50%; 
+	width:200%; 
+	height:200%;
+}
+
+.bg img {
+	position:absolute; 
+	top:0; 
+	left:0; 
+	right:0; 
+	bottom:0; 
+	margin:auto; 
+	min-width:50%;
+	min-height:50%;
+}
+
+input.formstyle, select {
+	width: 100%;
+	padding: 12px 15px;
+	margin: 8px 0;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	box-sizing: border-box;
+}
+
+.cadastrostyle {
+	width: 40%;
+	padding: 12px 15px;
+	margin: 8px 0;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	box-sizing: border-box;
+}
+
+div.content {
+	position: relative;
+	background-color: #FCFCFC;
+	min-height: 100%;
+    height: auto !important;
+    height: 100%;
+}
+
+div.filters {
+	background-color: #8CC1D9;
+	color: #FCFCFC;
+	font-size: 15px;
+}
+
+div.date_schedule {
+	background-color: #8CC1D9;
+	color: #FCFCFC;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+div.schedules {
+	color: #8CC1D9;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+div.schedules_content {
+	font-size: 10px;
+}
+
+div.piece {
+	display: inline-block;
+	color: #8CC1D9;
+	font-size: 20px;
+	text-align: center;
+	padding: 15px 15px;
+	max-width: 200px;
+}
+
+img.product {
+	width: 200px;
+	height: 200px; 
+}
+
+table.content_table {
+	margin-left:auto; 
+	margin-right:auto;
+}
+
+.thumbnail {
+	text-align:center;
+}
+
+#product_list_nologin {
+	padding-top: 50px;
+}
+
+.product_item {
+	display: inline-block;
+	margin: 15px 15px;
+	color: #0B2217;
+	text-align: center;
+	max-width: 200px;
+}
+
+div#user {
+	text-align: right;
+	color: #CCCCCC;
+	font-size: 20px;
+}
+
+#logout {
+	max-height: 8%;
+	max-width: 8%;
+}
+
+#logout_adm {
+	max-height: 5%;
+	max-width: 5%;
+}
+
+#sale {
+	max-height: 10%;
+	max-width: 10%;	
+}
+
+a.schedulebutton {
+	display: block;
+	color: #FCFCFC;
+	background-color: #0B2217;
+	font-style: oblique;
+	font-size: 30px;
+	text-align: center;	
+	text-decoration: none;
+}
+
+/*-------------------------Calendar------------------------*/
+
+* {
+	box-sizing: border-box;
+}
+
+ul { 
+	list-style-type: none;
+}
+
+.month {
+	padding: 50px 25px;
+	width: 100%;
+	background: #0B2217;
+	text-align: center;
+}
+
+.month ul {
+	margin: 0;
+	padding: 0;
+}
+
+.month ul li {
+	color: white;
+	font-size: 20px;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+}
+
+.month .prev {
+	float: left;
+	padding-top: 10px;
+}
+
+.month .next {
+	float: right;
+	padding-top: 10px;
+}
+
+.weekdays {
+	margin: 0;
+	padding: 10px 0;
+	background-color: #ddd;
+}
+
+.weekdays li {
+	display: inline-block;
+	width: 13.6%;
+	color: #666;
+	text-align: center;
+}
+
+.days {
+	padding: 10px 0;
+	background: #eee;
+	margin: 0;
+}
+
+.days li {
+	list-style-type: none;
+	display: inline-block;
+	width: 13.6%;
+	text-align: center;
+	margin-bottom: 5px;
+	font-size:15px;
+	color: #777;
+}
+
+.days li .active {
+	padding: 5px;
+	background: #0B2217;
+	color: white !important
+}
+
+.dayunit:hover {
+	background: #0B2217; 
+}
+
+/* Add media queries for smaller screens */
+@media screen and (max-width:720px) {
+	.weekdays li, .days li {width: 13.1%;}
+}
+
+@media screen and (max-width: 420px) {
+	.weekdays li, .days li {width: 12.5%;}
+	.days li .active {padding: 2px;}
+}
+
+@media screen and (max-width: 290px) {
+	.weekdays li, .days li {width: 12.2%;}
+}
+
+/*---------------------------------------------------------------*/
+
+.horizontal-content {
+	display: flex;
+}
+
+div.filters {
+	box-sizing: border-box;
+	min-width: 200px;
+	max-width: 200px;
+	padding: 15px;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	border-radius: 5px;
+	background-color: #8CC1D9;
+}
+
+div.filters button {
+	display: block;
+	margin: auto;
+	
+}
+
+.search_toolbar {
+	box-sizing: border-box;
+	margin: 25px 0 25px 0;
+	width: 100%;
+	text-align: center;
+}
+
+.search_tb_ctrl {
+	display: inline-block;
+	box-sizing: content-box;
+	margin: 0 auto;
+}
+
+.search_toolbar .search_input {
+	vertical-align: middle;
+}
+
+.search_toolbar .search_btn {
+	display: inline;
+	width: 20px;
+	height: 20px;
+	vertical-align: middle;
+	margin-left: 5px;
+}
+
+.search_toolbar .search_btn:hover {
+	cursor: pointer;
+}
+
+.product_manager {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 30px;
+	font-family: OCR A Std, monospace;
+}
+
+.product_manager .product_roulette {
+	box-sizing: content-box;
+	margin-bottom: 30px;
+}
+
+.product_manager .roulette_btn {
+	margin-left: 3px;
+	margin-right: 3px;
+	margin-bottom: 10px;
+}
+
+.product_manager .roulette_btn:hover {
+	cursor: pointer;
+	text-decoration: underline;
+	color: #1C91B5;
+}
+
+.product_manager .product_selection {
+	box-sizing: border-box;
+	width: 100%;
+	display: flex;
+}
+
+.product_manager .product_vertical_list {
+	width: 350px;
+	overflow-y: scroll;
+	margin-left: 50px;
+	box-sizing: border-box;
+	max-height: 400px;
+}
+
+.product_manager .horizontal_product {
+	border: 1px solid #E4E4E4;
+	box-sizing: content-box;
+	font-size: small;
+	display: flex;
+}
+
+.product_manager .horizontal_product:hover {
+	background-color: #F5F5F5;
+	cursor: pointer;
+}
+
+.product_manager .horizontal_product img {
+	width: 32px;
+	height: 64px;
+	float: left;
+	display: inline;
+}
+
+.product_manager .horizontal_product span {
+	display: inline;
+	text-align: left;
+	padding-left: 15px;
+	box-sizing: content-box;
+}
+
+.product_manager .product_info {
+	display: inline-block;
+	box-sizing: content-box;
+	margin-bottom: 20px;
+	margin: auto;
+}
+
+.product_manager .product_info * {
+	margin: 5px;
+}
+
+.product_manager .product_info img {
+	width: 200px;
+	height: 200px;
+
+}
+
+.prod_mng_btns .product_mng_btn {
+	margin: 0px 5px 0px 5px;
+	border-radius: 3px;
+}
+
+.product_manager .product_mng_btn:hover {
+	cursor: pointer;
+	text-decoration: underline;
+	color: #1C91B5;
+}
+
+div.details_header{
+	display: inline;
+	color: #000000;
+	font-size: 20px;
+	text-align: top;
+	padding: 15px 15px;
+	max-width: 200px;
+	top: 1px;
+}
+
+div.details_content{
+	color: #000000;
+	font-size: 18px;
+	text-align: center;
+	padding: 15px 15px;
+	max-width: 200px;
+}
+
+td.details {
+
+	margin: 5px 5px;
+}
+
+div.piece_det {
+
+	color: #8CC1D9;
+	font-size: 20px;
+	text-align: center;
+	padding: 15px 15px;
+	max-width: 200px;
+}
+
+a.details_links {
+	text-decoration: none;
+	color: #8CC1D9;
+}
+
+a.details_links:hover {
+	text-decoration: none;
+	color: #0B2217;
+	background-color: #FCFCFC;
+}
+
+table.details_table {
+	margin-left:auto; 
+	margin-right:auto;
+	position: relative;
+}
+
+div.animal_details_header{
+	display: inline;
+	color: #000000;
+	font-size: 17px;
+	text-align: top;
+	padding: 15px 15px;
+	max-width: 200px;
+	top: 1px;
+}
+
+div.animal_details_content{
+	color: #000000;
+	font-size: 17px;
+	text-align: center;
+	padding: 15px 15px;
+	max-width: 200px;
+	top: 1px;
+}
+
+div.animal_details_text{
+	display: inline;
+	color: #000000;
+	font-size: 17px;
+	text-align: top;
+	padding: 15px 15px;
+	max-width: 200px;
+	top: 1px;
+}
+
+.blank_row{
+	height: 15px !important;
+	background-color: #FFFFFF; 
+}
+
+div.cadastrocard {
+	position: relative;
+	text-align: left;
+	z-index: 2; 
+	width: 350px;
+	margin: 50px auto; 
+	padding: 10px; 
+	background: #FCFCFC;
+	color: #0B2217; 
+}
+
+button.cadastro_logged {
+	background-color: #0B2217;
+	color: #FCFCFC;
+	text-align: center;
+	font-size: 20px;
+	padding: 10px 10px;
+	width: 80%;
+	border-radius: 8px;
+	position: center;
+}
+
+button.cadastro_user {
+	background-color: #0B2217;
+	color: #FCFCFC;
+	text-align: center;
+	font-size: 20px;
+	padding: 10px 10px;
+	width: 80%;
+	border-radius: 8px;
+}
+
+h2.title {
+	padding-top: 30px;
+	text-align: center;
+	color: #0B2217;
+}
+
+
+a.cadastrolink {
+	font-size: 20px;
+	text-decoration: none;
+	color: #0B2217;	
+}
+
+.navbar-custom {
+    background-color: #0B2217;
+}
+
+.carouselimage {
+	width:100%;
+	height:500px;
+}
+
+.onepageheader {
+	text-align: center;
+	color: #0B2217;
+	margin-top: 50px;
+	font-weight: bold;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.icon {
+	width: 5%;
+	height: 5%;
+}
+
+div#schedule {
+	padding: 20px;
+	display: none;
+}
+
+#profile_cont, #profile_cont2, #profile_cont3, #profile_cont4 {
+	padding: 10px;
+}
+
+#thumbstronda {
+    text-align:center;
+}
+
+#thumbstronda > li {
+    display: inline-block;
+    *display:inline; /* ie7 fix */
+    float: none; /* this is the part that makes it work */
+}

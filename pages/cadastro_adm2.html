@@ -1,0 +1,46 @@
+
+		<div class="cadastrocard">
+				<form action="/registeruser" method="post" enctype="multipart/form-data" target="_self">
+					Nome Completo:<br />
+					<input class="formstyle" name="name" type="text" id="nome" placeholder="Nome e Sobrenome(s)" required/><br /><br />    			
+					E-mail:<br />
+					<input class="formstyle" name="email" type="email" id="email" placeholder="Endereço de e-mail" required/><br /><br />
+					Foto de Perfil:<br />
+					<input class="formstyle" name="image" type="file" id="imagem" placeholder="Selecione..." required/><br /><br />
+					Telefone:<br />
+					<input class="formstyle" name="tel" type="tel" id="telefone" placeholder="(DDD) Telefone" required/><br /><br />
+					Celular:<br />
+					<input class="formstyle" name="cel" type="tel" id="celular" placeholder="(DDD) Celular" required/><br /><br />
+					Data de Nascimento:<br />
+					<input class="formstyle" name="birth" type="date" id="data_nascimento" placeholder="DD/MM/AAAA" required/><br /><br />
+					Sexo:<br />
+					<select id="genre" name="genre" required>
+					  <option value="f">Feminino</option>
+					  <option value="m">Masculino</option>
+					  <option value="o">Outro</option>
+					</select><br /><br />
+					Tipo da conta:<br />
+					<select id="profile" name="profile_type">
+					  <option value="1" selected>Administrador</option>
+					</select><br /><br />
+					CPF:<br />
+					<input class="formstyle" name="cpf" type="text" id="cpf" data-mask="000.000.000-00" placeholder="CPF com traço e pontos" required/><br /><br />
+					CEP:<br />
+					<input class="formstyle" name="cep" type="text" id="cep" data-mask="00000-000" placeholder="CEP com traço" required/><br /><br />
+					Endereço: <br />
+					<input class="formstyle" name="address" type="text" id="endereco" placeholder="Rua A, Avenida B, por exemplo..." required/><br /><br />
+					Bairro: <br />
+					<input class="formstyle" name="neighborhood" type="text" id="ngbd" placeholder="Bairro do endereço" required/><br /><br />
+					Número: <br />
+					<input class="formstyle" name="num" type="number" id="numero" placeholder="Número do endereço" required/><br /><br />
+					Complemento: <br />
+					<input class="formstyle" name="complement" type="text" id="complemento" placeholder="Apartamento X, Sala Y, etc..." required/><br /><br />
+					Senha:<br />
+					<input class="formstyle" name="password" type="password" id="senha" placeholder="Senha" required/><br /><br />
+					<button class="cadastro" type="submit">Cadastrar</button>
+				</form>
+				
+			</div>
+			
+			<script text="type/javascript" src="./js/client_logic.js"></script>
+	

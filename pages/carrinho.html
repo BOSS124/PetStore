@@ -1,0 +1,117 @@
+
+		<div class="row">
+			<table class="table table-striped">
+			  <thead>
+			    <tr class="bg-info">
+						<td>Meu Carrinho</td>
+						<td>Produto</td>
+						<td>Quantidade</td>
+						<td>Preço</td>
+			    </tr>
+			  </thead>
+			    <tbody id="cart_itens">
+			  	</tbody>		
+			</table>
+		</div>
+		<div class="row">
+			<div id="buttons">
+				<button class="btn btn-warning" onclick="emptyCart()">Limpar Carrinho</button>	
+				<button class="btn btn-success" onclick="loadPurchaseModal();">Finalizar Compra</button>
+			</div>
+		</div>
+
+		<div id="purchase_modal" class="modal fade" class="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+			  	
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title">Finalizar compra</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div class="modal-body">
+				      	<form action="" method="" enctype="multipart/form-data" target="_self">
+				      	<div class="form-row">
+						    <div class="form-group col-md-6">
+						     	<label for="inputCard">Número Cartão:</label>
+						     	<input type="text" maxlength="16" class="form-control" id="inputCard" required>
+						  	</div>
+						</div>
+						<div class="form-row">
+				      		<div class="form-group col-md-2">
+					    	<label for="inputCvv">CVV</label>
+					    	<input type="text" maxlength="3" class="form-control" id="inputCvv" required>
+					    	</div>				  
+					    </form>				        
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-primary" onclick="endPurchase();" data-dismiss="modal">Confirmar Pagamento</button>
+				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar Pagamento</button>
+				      </div>
+				    </div>
+				  </div>
+				
+			  </div>
+
+
+
+
+		<script>
+			function loadCart() {
+				$.get('/cartitens', function(data, status) {
+					if(status === "success") {
+						console.log(data);
+						$('#cart_itens').empty();
+						console.log(data.length);
+						
+						for(let i in data) {
+							let prod = data[i];
+							
+							$.get('/' + prod.imgFile, function() {
+								$('#cart_itens').append(
+									'<tr>\
+										<td> <img width="50" height="50" align="center" src="/' + prod.imgFile + '" alt=""></td>\
+										<td>' + prod.name + '</td>\
+										<td><input type="number" min="0" value="' + prod.amount + '" required /></td>\
+										<td>R$' + prod.price.toFixed(2) +'</td>\
+				  				</tr>'
+								);
+							});
+						}
+					}
+				});
+			}
+
+			function endPurchase() {
+				$.post('/emptycart', function(data, status) {
+					if(status === "success") {
+						alert("Compra efetuada com sucesso!");
+						open_cart();
+					}
+					else {
+						alert("Não foi possível limpar o carrinho! Possível perda na conexão com o servidor");
+					}
+				});
+				open_cart();
+			}
+
+			function emptyCart() {
+				$.post('/emptycart', function(data, status) {
+					if(status === "success") {
+						open_cart();
+					}
+					else {
+						alert("Não foi possível limpar o carrinho! Possível perda na conexão com o servidor");
+					}
+				});
+			}
+
+			function loadPurchaseModal() {
+				
+				let modal = $("#purchase_modal");
+				modal.modal();
+			}
+			loadCart();
+		</script>
+

@@ -1,0 +1,79 @@
+<div class="content">
+	<div id="schedule_adm" class="cadastrocard">
+	<form action="/registerscheduleadm" method="post" enctype="multipart/form-data">
+		Serviço de interesse:<br>
+		<select name="ida_service" class="formstyle" id="adm_service" required>
+		</select><br><br>
+	    Dono do Pet:<br>
+		<select name="ida_owner" class="formstyle" id="adm_owner" onchange="load_pets(this.value);" required>
+		</select><br><br>
+	    Pet de interesse:<br>
+		<select name="ida_animal" class="formstyle" id="adm_animal" required>
+		</select><br><br>
+	    Data do atendimento:<br>
+	    <input name="attendance_date" class="formstyle" type="date" id="adm_date"><br><br>
+		Horário:<br>
+		<input name="hours" class="formstyle" type="time" id="adm_hours"><br><br>
+		<center><button class="cadastro_user" type="submit">Cadastrar</button></center>
+	</form>    
+	</div>
+</div>
+<script type="text/javascript">
+	function load_pets(id) {
+        $.get('/clientpetlist/'+id, function(data, status) {
+			if(status === "success") {
+				if(data.length === 0) {
+					alert('O usuario nao possui animais cadastrados!');
+                }
+                else {
+                    for(let i in data) {
+                        $('#adm_animal').append(
+                            '<option value="' + String(data[i].id) + '">' + data[i].name + '</option>');
+                    }
+                }
+            }
+            else {
+                alert("Falha na comunicação com o servidor. Tente novamente mais tarde");
+            }
+        });
+	}
+
+	function load_options() {
+        $.get('/allservicelist', function(data, status) {
+            if(status === "success") {
+                if(data.length === 0) {
+                    alert('Você não possui serviços cadastrados. Para agendar é preciso ter pelo menos 1 tipo de serviço cadastrado!');
+                }
+                else {
+                    for(let i in data) {
+                    	$('#adm_service').append(
+                            '<option value="' + String(data[i].id) + '">' + data[i].name + '</option>');
+                    }
+                }
+            }
+            else {
+                alert("Falha na comunicação com o servidor. Tente novamente mais tarde");
+            }
+        });
+        $.get('/alluserslist', function(data, status) {
+            if(status === "success") {
+                if(data.length === 0) {
+                    alert('Você não possui usuarios cadastrados. Para agendar é preciso ter pelo menos 1 usuario cadastrado!');
+                    load_register_animal();
+                }
+                else {
+                    for(let i in data) {
+                    	if (data[i].profile_type == 2) {
+	                        $('#adm_owner').append(
+	                            '<option value="' + String(data[i].id) + '">' + data[i].name + '</option>');
+                    	}
+                    }
+                }
+            }
+            else {
+                alert("Falha na comunicação com o servidor. Tente novamente mais tarde");
+            }
+        });
+    }        
+    load_options();
+</script>

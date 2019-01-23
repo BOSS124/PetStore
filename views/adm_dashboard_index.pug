@@ -1,0 +1,41 @@
+html
+  head
+    title Louro Jose Pet Store - Painel do Administrador
+    link(rel="stylesheet" type="text/css" href="/css/style.css")
+    link(rel="stylesheet" type="text/css" href="/bootstrap-4.1.1/css/bootstrap.min.css")
+  body
+    #entirecontent
+      #dynamicmenu
+        nav.navbar.navbar-expand-md.navbar-dark.navbar-custom.fixed-top.nav-pills.nav-fill
+          a.navbar-brand(href="#" onclick="load_adm_services();")
+            img.logo(src="./img/logo2.png" alt="")
+          button.navbar-toggler(type="button" data-toggle="collapse" data-target="#collapsibleNavbar")
+            span.navbar-toggler-icon
+          #collapsibleNavbar.collapse.navbar-collapse
+            ul.navbar-nav
+              li.nav-item
+                a.nav-link.menulinks(href="#" onclick="load_adm_services();") AGENDAMENTOS
+              li.nav-item
+                a.nav-link.menulinks(href="#" onclick="load_adm_cad();") CADASTRO
+              li.nav-item
+                a.nav-link.menulinks(href="#" onclick="load_adm_stock();") ESTOQUE
+              li.nav-item
+                a.nav-link.menulinks(href="#" onclick="load_adm_users();") USUÁRIOS
+              li.nav-item
+                a.nav-link.menulinks(href="#" onclick="load_adm_profile();") PERFIL
+              li.nav-item
+                #user Bem vinda, !{userName}!
+                  a(href="/logout")
+                    img#logout_adm(alt="Sair" src="./img/logout.png")
+                  br
+      #admcontent.content
+      .footer
+        | 2018 - Grupo 6 | Introdução ao Desenvolvimento Web
+        br
+        | 			Todos os direitos reservados.
+      script(type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+      script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js")
+      script(type="text/javascript" src="./bootstrap-4.1.1/js/bootstrap.min.js")
+      script(type="text/javascript" src="../js/adm_dashboard.js")
+      script(type="text/javascript").
+        load_adm_services();

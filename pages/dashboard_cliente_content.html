@@ -1,0 +1,115 @@
+		<nav class="row navbar navbar-expand-lg navbar-light bg-light">
+			  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				    <ul class="navbar-nav mr-auto">
+				      	
+				      	<li class="nav-item dropdown">
+				        	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          Categorias
+				        	</a>
+					        <div id="filter_category" class="dropdown-menu" aria-labelledby="navbarDropdown">
+					          	<a onclick="setFiltersCategory('food'); loadProducts();" class="dropdown-item">Alimentos</a>
+					          	<a onclick="setFiltersCategory('supplement'); loadProducts();" class="dropdown-item">Suplementos</a>
+					          	<a onclick="setFiltersCategory('toy'); loadProducts();" class="dropdown-item">Brinquedos</a>
+					          	<a onclick="setFiltersCategory('accessory'); loadProducts();" class="dropdown-item">Acessórios</a>
+					        </div>
+				     	</li>
+				      	<li class="nav-item dropdown">
+				        	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          Pet
+				        	</a>
+					        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					          	<a onclick="setFiltersPet('dogs'); loadProducts();" class="dropdown-item">Cães</a>
+					          	<a onclick="setFiltersPet('cats'); loadProducts();" class="dropdown-item">Gatos</a>
+					          	<a onclick="setFiltersPet('birds'); loadProducts();" class="dropdown-item">Aves</a>
+					          	<a onclick="setFiltersPet('fishes'); loadProducts();" class="dropdown-item">Peixes</a>
+					        </div>
+				     	</li>
+				     	<li class="nav-item">
+				     		<button class="btn btn-outline-success my-2 my-sm-0" onclick="resetFilters(); loadProducts();">Limpar</button>
+				     	</li>
+				    </ul>
+			  	</div>
+			    <form action="" onsubmit="search();" class="form-inline my-2 my-lg-0">
+			      	<input id="search_input" class="form-control mr-sm-2" type="search" placeholder="Buscar por nome" aria-label="Buscar">
+			      	<button type="submit" class="btn btn-outline-success my-2 my-sm-0">Buscar</button>
+			    </form>
+			</nav>
+
+		<div id="product_list_nologin" class="row card-group">
+			<script type="text/javascript">
+				var filter = {
+					category: null,
+					pet: null
+				};
+
+				function loadProducts() {
+					getProductList(function(products) {
+						$("#product_list_nologin").empty();
+
+						for(var i in products) {
+							let prod = products[i];
+							let select = true;
+
+							if(filter.category !== null && prod.category !== filter.category)
+								select = false;
+
+							if(filter.pet !== null && prod.target !== filter.pet)
+								select = false;
+
+							if(select) {
+								$("#product_list_nologin").append(
+									'<div class="col-sm-6 col-md-4 col-lg-3">\
+											<figure class="thumbnail">\
+											    <img class="product img-thumbnail" align="center" src="../img/' + prod.imgfile + '" alt="">\
+												<figcaption class="caption">\
+										 			<p class="product_item">' + prod.name + '<br>R$ ' + prod.price.toFixed(2) + '</p><br />\
+									    			<button role="button" class="btn btn-primary btn-buy" onclick="open_cart();">Comprare</button>\
+												</figcaption>\
+											</figure>\
+									</div>'
+								);
+							}
+						}
+					});
+				}
+
+				function setFiltersCategory(category) {
+					filter.category = category;
+				}
+
+				function setFiltersPet(pet) {
+					filter.pet = pet;
+				}
+
+				function resetFilters() {
+					filter.category= null;
+					filter.pet = null;
+				}
+				function search() {
+					var searchString = $("#search_input").val();
+					getProductList(function(products) {
+						$("#product_list_nologin").empty();
+
+						for(var i in products) {
+							let prod = products[i];
+
+							if(prod.name.includes(searchString)) {
+								$("#product_list_nologin").append(
+									'<div class="col-sm-6 col-md-4 col-lg-3">\
+											<figure class="thumbnail">\
+											    <img class="product img-thumbnail" align="center" src="../img/' + prod.imgfile + '" alt="">\
+												<figcaption class="caption">\
+										 			<p class="product_item">' + prod.name + '<br>R$ ' + prod.price.toFixed(2) + '</p><br />\
+									    			<button role="button" class="btn btn-primary btn-buy" onclick="redirect_login();">Comprar</button>\
+												</figcaption>\
+											</figure>\
+									</div>'
+								);
+							}
+						}
+					});
+				}
+
+				loadProducts();
+			</script>
+		</div>

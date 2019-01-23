@@ -1,0 +1,117 @@
+<div id="stock" class="container-fluid">
+			<nav class="row navbar navbar-expand-lg navbar-light bg-light">
+			  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				    <ul class="navbar-nav mr-auto">
+				      	
+				      	<li class="nav-item dropdown">
+				        	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          Categorias
+				        	</a>
+					        <div id="stock_filter_category" class="dropdown-menu" aria-labelledby="navbarDropdown">
+					          	<a onclick="setStockFiltersCategory('food'); loadStock();" class="dropdown-item">Alimentos</a>
+					          	<a onclick="setStockFiltersCategory('supplement'); loadStock();" class="dropdown-item">Suplementos</a>
+					          	<a onclick="setStockFiltersCategory('toy'); loadStock();" class="dropdown-item">Brinquedos</a>
+					          	<a onclick="setStockFiltersCategory('accessory'); loadStock();" class="dropdown-item">Acessórios</a>
+					        </div>
+				     	</li>
+				      	<li class="nav-item dropdown">
+				        	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          Pet
+				        	</a>
+					        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					          	<a onclick="setStockFiltersPet('dogs'); loadStock();" class="dropdown-item">Cães</a>
+					          	<a onclick="setStockFiltersPet('cats'); loadStock();" class="dropdown-item">Gatos</a>
+					          	<a onclick="setStockFiltersPet('birds'); loadStock();" class="dropdown-item">Aves</a>
+					          	<a onclick="setStockFiltersPet('fishes'); loadStock();" class="dropdown-item">Peixes</a>
+					        </div>
+				     	</li>
+				     	<li class="nav-item">
+				     		<button class="btn btn-outline-success my-2 my-sm-0" onclick="resetStockFilters(); loadStock();">Limpar</button>
+				     	</li>
+				    </ul>
+			  	</div>
+			    <form action="#" onsubmit="search();" class="form-inline my-2 my-lg-0">
+			      	<input id="stock_search_input" class="form-control mr-sm-2" type="search" placeholder="Buscar por nome ou ID" aria-label="Buscar">
+			      	<button type="submit" class="btn btn-outline-success my-2 my-sm-0">Buscar</button>
+			    </form>
+			</nav>
+
+			<div id="stock_items" class="row"></div>
+			
+			<div id="stock_item_modal" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+			  	<div class="modal-dialog modal-dialog-centered" role="document">
+				    <div class="modal-content">
+						<form action="/updateproduct" method="post" enctype="multipart/form-data" target="_self">
+				      	<div class="modal-header">
+				        	<h5 class="modal-title" id="exampleModalCenterTitle">Editar Produto</h5>
+				        	<button type="button" class="close" data-dismiss="modal" aria-label="Cancelar">
+				          		<span aria-hidden="true">&times;</span>
+				        	</button>
+				      	</div>
+				      	<div class="modal-body">
+				      		<div class="container text-center">
+				      			<img id="modal_prodimg" width="150" height="150" src="" alt="">
+				      		</div>
+					        	<div class="form-row">
+					        		<div class="form-group">
+					        			<label for="modal_prodid" class="">ID:</label>
+					        			<input name="id" type="number" id="modal_prodid" readonly class="form-controls" required>
+					        		</div>
+					        	</div>
+					        	<div class="form-row">
+					        		<div class="form-group">
+					        			<label for="modal_prodname" class="">Nome:</label>
+					        			<input name="name" type="text" id="modal_prodname" required>
+					        		</div>
+								</div>
+								<div class="form-row">
+										<div class="form-group">
+											<label for="modal_inputimg" class="">Imagem:</label>
+											<input name="image" type="file" id="modal_inputimg" placeholder="Selecione...">
+										</div>
+									</div>
+					        	<div class="form-row">
+					        		<div class="form-group">
+					        			<label for="modal_prodcategory" class="">Categoria:</label>
+					        			<select name="category" class="form-control" id="modal_prodcategory" required>
+					        				<option value="food">Alimentos</option>
+								          	<option value="supplement">Suplementos</option>
+								          	<option value="toy">Brinquedos</option>
+								          	<option value="accessory">Acessórios</option>
+								          	<option value="hygiene">Higiene</option>
+					        			</select>
+					        		</div>
+					        	</div>
+					        	<div class="form-row">
+					        		<div class="form-group">
+					        			<label for="modal_prodtarget">Tipo Animal:</label>
+					        			<select name="target" class="form-control" id="modal_prodtarget" required>
+					        				<option value="dogs">Cães</option>
+						          			<option value="cats">Gatos</option>
+						          			<option value="birds">Aves</option>
+						          			<option value="fishes">Peixes</option>
+					        			</select>
+					        		</div>
+					        	</div>
+					        	<div class="form-row">
+					        		<div class="form-group">
+					        			<label for="modal_prodprice">Preço(R$):</label>
+					        			<input name="price" type="number" step="0.01" id="modal_prodprice" required>
+					        		</div>
+					        	</div>
+					        	<div class="form-row">
+					        		<div class="form-group">
+					        			<label for="modal_prodamount">Qtd:</label>
+					        			<input name="amount" type="number" id="modal_prodamount" required>
+					        		</div>
+					        	</div>
+				      	</div>
+				      	<div class="modal-footer">
+				        	<button type="submit" class="btn btn-primary" id="modal-btn-save">Salvar</button>
+				        	<button type="button" class="btn btn-secondary" data-dismiss="modal" id="modal-btn-cancel">Cancelar</button>
+						  </div>
+						</form>
+				    </div>
+			  	</div>
+			</div>
+		</div>

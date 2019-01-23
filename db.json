@@ -1,0 +1,9 @@
+{
+    "host" : "couchdb-940ebf.smileupps.com",
+    "protocol" : "https",
+    "port" : 443,
+    "auth" : {
+        "user": "admin",
+        "pass": "b94052049829"
+    }
+}

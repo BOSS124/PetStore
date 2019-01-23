@@ -1,0 +1,14 @@
+<div class="cadastrocard">
+        <form action="/registerservice" method="post" enctype="multipart/form-data">
+            Nome do Serviço:<br />
+            <input name="name" class="formstyle" type="text" id="nome" placeholder="Nome do Serviço" /><br /><br />
+            Foto do Serviço:<br />
+            <input name="image" class="formstyle" id="image"  type="file" required><br /><br />
+            Descrição:<br />
+            <input name="description" class="formstyle" type="textarea" id="descricao" placeholder="Descrição do Serviço" required/><br /><br />
+            Preço:<br />
+            <input name="price" class="formstyle" id="price" type="number" min="0" step="0.01" value="0" required /><br /><br />
+
+            <button class="cadastro_logged" type="submit">Cadastrar</button>
+        </form>
+</div>

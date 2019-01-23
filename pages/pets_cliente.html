@@ -1,0 +1,68 @@
+
+<div class="horizontal-content">
+        <section class="container product_list">
+            <h1 class="onepageheader">CONFIRA OS PETS!</h1>
+            <div id="pet_list" class="row card-group">
+                <script type="text/javascript">
+                    function loadPets() {
+                        $.get('/sellingpets', function(data, status) {
+                            if(status === "success") {
+                                $("#pet_list").empty();
+                                for(var i in data) {
+                                    let animal = data[i];
+                                    let aName;
+                                    let aPrice;
+
+                                    if(animal.name !== null)
+                                        aName = animal.name;
+                                    else
+                                        aName = "Sem Nome";
+
+                                    if(animal.price === 0)
+                                        aPrice = "Doação";
+                                    else if(animal.price === null)
+                                        aPrice = "-";
+                                    else
+                                        aPrice = "R$ " + animal.price.toFixed(2);
+
+                                    $.get('/' + animal.imgFile, function(data, status) {
+                                        $("#pet_list").append(
+                                            '<div class="col-sm-6 col-md-4 col-lg-3">\
+                                                    <figure class="thumbnail">\
+                                                        <img class="product img-thumbnail" align="center" src="/' + animal.imgFile + '" alt="">\
+                                                        <figcaption class="caption">\
+                                                            <span class="product_item">\
+                                                                <p>' + aName + '<br />' + animal.breed + '<br />' + aPrice + '</p>\
+                                                            </span><br />\
+                                                            <button class="btn btn-primary" onclick=buyPet(' + animal.id + ');>Comprar</button>\
+                                                        </figcaption>\
+                                                    </figure>\
+                                            </div>'
+                                        );
+                                    });
+                                }
+                            }
+                            else {
+                                console.log("Não foi possível obter a lista de pets a venda");
+                            }
+                        });
+                    }
+
+                    function buyPet(id) {
+                        $.post('/addtocart', {animalId: id}, function(data, status) {
+                            if(status === "success") {
+                                alert("Item adicionado ao carrinho com sucesso!");
+                            }
+                            else {
+                                alert("Não foi possível adicionar o item ao carrinho");
+                            }
+                        });
+                    }
+
+                    loadPets();
+                </script>
+            </div>
+        </section>
+    
+    </div>
+    
